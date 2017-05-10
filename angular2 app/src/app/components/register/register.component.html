@@ -1,0 +1,72 @@
+<form class="col-md-6 col-md-offset-3  col-sm-12 col-sm-offset-0 " #personForm="ngForm"  >
+<mz-input-container class="col s12">
+
+  <input mz-input  [(ngModel)]="username"
+         [label]="'Username'"
+         [validate]="true"
+         required
+         [dataError]="'Name must be between 5 and 50 chars'"
+         minlength="5"
+         length="150"
+         name="username"
+         id="username"
+         type="text">
+</mz-input-container>
+
+<mz-input-container class="col s12">
+  <input mz-input [(ngModel)]="email"
+         name="email"
+         [label]="'Email'"
+         [validate]="true"
+         [dataError]="'Email is invalid'"
+         [dataSuccess]="'Email is valid'"
+         id="email-input"
+         required
+         length="150"
+         type="email">
+
+</mz-input-container>
+
+
+<mz-input-container class="col s12">
+
+  <input mz-input [(ngModel)]="password"
+         name="password"
+         [label]="'Password'"
+         pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,50}$"
+         [validate]="true"
+         required
+         [dataError]="'Password must be at least 5 symols and contains one cappital latetr one digit '"
+         id="password"
+         length="150"
+         type="password">
+</mz-input-container>
+<mz-input-container class="col s12">
+
+  <input mz-input [(ngModel)]="confirmPassword"
+         name="confirmPassword"
+         [label]="'Confirm Password'"
+         id="confirmPassword"
+         required
+         [validate]="true"
+         [dataError]="'Password must be at least 5 symols and contains one cappital latetr one digit '"
+         length="150"
+         type="password">
+</mz-input-container>
+<mz-select-container>
+  <select mz-select
+          [(ngModel)]="portName"
+          name="portName"
+          id="options-select"
+          [label]="'Select Port'"
+          [placeholder]="'Select Port'"
+  >
+    <option *ngFor="let port of ports"     class="left circle">{{port.name}}</option>
+
+  </select>
+</mz-select-container>
+  <button  (click)="create()" mz-button [disabled]="!personForm.form.valid">
+    Create
+  </button>
+</form>
+

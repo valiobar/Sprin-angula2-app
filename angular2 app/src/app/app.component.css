@@ -1,0 +1,14 @@
+
+.mainView{
+  background-color:rgba(1, 1, 128, 0.5);
+  margin-top:80px;
+  height: 85%;
+  border-radius: 20px;
+  padding: 10px;
+  position: relative;
+  color: white;
+
+}
+.container{
+  height: 100%;
+}

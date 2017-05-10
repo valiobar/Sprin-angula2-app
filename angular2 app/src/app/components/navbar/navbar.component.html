@@ -1,0 +1,61 @@
+<nav class=" navbar navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" (click)="toggleState()">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button> <!-- #1 -->
+      <a class="navbar-brand"><img style="width: 60px" src="../../../assets/sailing-boat-logo.png" alt=""></a>
+    </div>
+    <div class="collapse navbar-collapse" [ngClass]="{ 'in': isIn }">
+      <ul class="nav navbar-nav">
+        <li><a href='/'>Home</a></li>
+        <li class="dropdown">
+          <span dropdown (isOpenChange)="toggled($event)">
+         <a class="newDropdown" style="padding: 15px" href dropdownToggle (click)="false">Reggata <span class="caret navDrop">▼</span></a>
+          <ul *dropdownMenu class="dropdown-menu">
+          <li>
+           <a class="dropdown-item" href='reggata/create'>Create Reggata</a>
+         </li>
+              <li>
+           <a class="dropdown-item" href='reggata/all'>All Reggatas</a>
+         </li>
+        </ul>
+        </span>
+        </li>
+
+
+        <li class="dropdown" (click)=" toggleDropdown()" [ngClass]="{ 'open': dropdown }">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);" aria-expanded="false">Ports
+            <span class="caret navDrop">▼</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="ports/create">Create</a></li>
+
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav right">
+        <li *ngIf="!globals.username"><a href="/register"><span class="glyphicon glyphicon-user"></span>Sign In</a></li>
+        <li style="font-size: 2rem" *ngIf="globals.username"><span>Hello {{globals.username}}</span></li>
+        <li><a *ngIf="!globals.username" (click)="bottomSheetModal.open()"><span
+          class="glyphicon glyphicon-log-in"></span>Login</a></li>
+        <li><a *ngIf="globals.username" (click)="signOut()"><span class="glyphicon glyphicon-log-out"></span>Sign
+          Out</a></li>
+      </ul>
+    </div> <!-- #2 -->
+  </div>
+</nav>
+<mz-modal #bottomSheetModal [fixedFooter]="false" [bottomSheet]="false" [options]="modalOptions">
+  <mz-modal-header>
+    <a id="closeModal"
+       style="float: right;color: white;font-size: x-large;font-weight: bold;text-decoration: none;cursor: pointer"
+       mz-modal-close>X</a>
+    <h2>Login</h2>
+  </mz-modal-header>
+  <mz-modal-content>
+    <app-login (onCreate)="onCreate($event)"></app-login>
+  </mz-modal-content>
+
+</mz-modal>

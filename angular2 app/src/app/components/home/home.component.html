@@ -1,0 +1,24 @@
+
+<div class="col-sm-4 last5Container coolScrol" >
+  <mz-spinner class="spiner" *ngIf="!reggats"
+              [color]="'blue'"
+              [size]="'big'">
+  </mz-spinner>
+ <div (click)="selectReggata(reggata)" class="reggataShortContainer" *ngFor="let reggata of reggats;let last = last">
+   <span>Created by :</span><strong>{{reggata.username}}</strong><br>
+   <span>Start on :</span><strong>{{reggata.reggataDate|date: 'dd/MM/yy'}}</strong>
+   <span> at :</span><strong>{{reggata.reggataDate|date: 'HH:mm'}}</strong><br>
+   <span>Port: </span>{{reggata.port.name}}<br>
+   <span>Created: </span>{{reggata.created|date: 'dd/MM/yy'}}
+
+ </div>
+</div>
+<div  *ngIf="selectedReggat" style="" class="col-sm-8 homeMapContainer">
+
+    <button style="background-color:rgba(1, 1, 128,0.7);position: absolute;left: 5%;bottom: 5%;z-index: 10"type="button" class="btn btn-info">Details</button>
+
+
+  <app-map
+    [markers]="selectedReggat.reggataPoints"
+    [isCreateReggataMap]="false"></app-map>
+</div>

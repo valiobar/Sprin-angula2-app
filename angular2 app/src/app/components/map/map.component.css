@@ -1,0 +1,42 @@
+
+sebm-google-map {
+  position:relative;
+  height: 100%;
+  width: 100%;
+}
+
+.sebm-google-map-container {
+ /* position: absolute;*/
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.reggataLegsContainer{
+  position: absolute;
+  z-index: 11;
+  overflow-y: auto;
+  width:25% ;
+  max-height: 75%;
+}
+.reggataLeg{
+background-color: rgba(1, 1, 128,0.7);
+  border-radius: 3px;
+  margin: 3px;
+position: relative;
+}
+.legSpan{
+  font-size: smaller;
+}
+.delMarker{
+  position: absolute;
+  right: 0.2em;;
+  top :0;
+  cursor: pointer;
+  background-color: transparent;
+}
+@media screen and (max-width: 767px) {
+  .reggataLegsContainer{
+    width: 35%;
+  }
+}

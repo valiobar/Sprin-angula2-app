@@ -1,0 +1,35 @@
+<form class="col-md-8 col-md-offset-2  col-sm-12 col-sm-offset-0 "  #loginForm="ngForm"  >
+  <mz-input-container class="col s12">
+
+    <input mz-input  [(ngModel)]="loginUser.username"
+           [label]="'Username'"
+           [validate]="true"
+           required
+           [dataError]="'Name must be between 5 and 50 chars'"
+           minlength="5"
+           length="150"
+           name="username"
+           id="username"
+           type="text">
+  </mz-input-container>
+
+
+  <mz-input-container class="col s12">
+
+    <input mz-input [(ngModel)]="loginUser.password"
+           name="password"
+           [label]="'Password'"
+           pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,50}$"
+           [validate]="true"
+           required
+           [dataError]="'Password must be at least 5 symols and contains one cappital latetr one digit '"
+           id="password"
+           length="150"
+           type="password">
+  </mz-input-container>
+
+
+  <button  (click)="login()" mz-button [disabled]="!loginForm.form.valid">
+    Login
+  </button>
+</form>

@@ -1,0 +1,46 @@
+<div class="col-md-8 reggataMap">
+  <app-map (onNewPoint)="addPoint($event)"
+           (onPointDeleted)="removePoint($event)" *ngIf="userPort" [searchBox]="searchInput"
+           [center]="userPort.point"
+           [isCreateReggataMap]="true"></app-map>
+
+</div>
+<div class="col-md-4">
+  <mz-select-container>
+    <select mz-select
+            [(ngModel)]="userPort"
+            [disabled]="points.length>0"
+            name="portName"
+            id="options-select"
+
+            [placeholder]="'Select Port'"
+
+    >
+
+      <option *ngFor="let port of ports" [ngValue]="port" class="left circle">{{port.name}}</option>
+
+    </select>
+  </mz-select-container>
+
+  <div *ngIf="!dt" style="display:inline-block; ">
+    <h4>Select date:</h4>
+    <datepicker [(ngModel)]="dt" [minDate]="minDate" [showWeeks]="true" [dateDisabled]="dateDisabled"></datepicker>
+  </div>
+
+  <div *ngIf="dt&&!timeSelected">
+    <h4>Select time:</h4>
+    <timepicker class="timePicker" [(ngModel)]="dt" [showMeridian]="false"></timepicker>
+    <button (click)="timeSelect()" type="button" class="btn btn-primary">Done</button>
+  </div>
+  <div *ngIf="timeSelected">
+    <h4>Reggata Start:</h4><span> {{dt|date: 'dd/MM/yy'}} at</span><span> {{dt|date: 'HH:mm'}}</span>
+  </div>
+  <button (click)="createReggata()" class="reggataSumbil"
+          [disabled]="dt==null||points.length<2"
+          mz-button>
+    Create Reggata
+
+  </button>
+
+</div>
+

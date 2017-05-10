@@ -1,0 +1,28 @@
+.reggataShortContainer{
+  color:#121256 ;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  padding: 7px;
+  max-height: 18%;
+}
+.reggataShortContainer:hover{
+  color:white ;
+  background-color: rgba(18, 18, 86,0.6);
+}
+.last5Container{
+  max-height: 100%;
+  overflow: auto;
+}
+.homeMapContainer{
+  height: 100%
+}
+@media screen and (max-width: 767px) {
+  .last5Container{
+    max-height: 50%;
+  }
+  .homeMapContainer{
+    max-height: 50%;
+  }
+}

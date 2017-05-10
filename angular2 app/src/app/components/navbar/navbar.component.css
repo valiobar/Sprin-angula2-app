@@ -1,0 +1,38 @@
+@media (max-width: 768px) {
+
+nav ul li {
+   float: none!important;
+  }
+}
+nav {
+  background-color: transparent;
+  border: none;
+  border-bottom: solid ;
+  border-color: white!important;
+  border-width: 3px;
+
+}
+.navbar-brand{
+  padding: 0;
+  padding-left:15px ;
+  padding-right:15px ;
+}
+nav ul li a {
+  font-size: 2rem;
+  line-height: 30px;
+}
+.icon-bar {
+  color: white!important;
+}
+.icon-bar {
+  background-color:white !important;
+}
+.glyphicon {
+  margin-right: 2px;
+}
+.newDropdown:hover{
+  background-color: white;
+  text-decoration: none;
+
+  color: rgba(1, 1, 128,1)!important;
+}

@@ -1,0 +1,53 @@
+<div class="col-sm-4 last5Container coolScrol" >
+  <h4>All Reggatas</h4>
+  <mz-spinner class="spiner" *ngIf="!reggatsAll"
+              [color]="'blue'"
+              [size]="'big'">
+  </mz-spinner>
+  <div (click)="showDetails(reggata.id)" class="reggataShortContainer" *ngFor="let reggata of reggatsAll;let last = last">
+    <span>Created by :</span><strong>{{reggata.username}}</strong><br>
+    <span>Start on :</span><strong>{{reggata.reggataDate|date: 'dd/MM/yy'}}</strong>
+    <span> at :</span><strong>{{reggata.reggataDate|date: 'HH:mm'}}</strong><br>
+    <span>Port: </span>{{reggata.port.name}}<br>
+    <span>Created: </span>{{reggata.created|date: 'dd/MM/yy'}}
+
+  </div>
+</div>
+<div class="col-sm-4 last5Container coolScrol" >
+  <h4>My Reggatas</h4>
+  <mz-spinner class="spiner" *ngIf="!reggatsAll"
+              [color]="'blue'"
+              [size]="'big'">
+  </mz-spinner>
+  <div (click)="showDetails(reggata.id)" class="reggataShortContainer" *ngFor="let reggata of myReggatas;let last = last">
+
+    <span>Created by :</span><strong>{{reggata.username}}</strong><br>
+    <span>Start on :</span><strong>{{reggata.reggataDate|date: 'dd/MM/yy'}}</strong>
+    <span> at :</span><strong>{{reggata.reggataDate|date: 'HH:mm'}}</strong><br>
+    <span>Port: </span>{{reggata.port.name}}<br>
+    <span>Created: </span>{{reggata.created|date: 'dd/MM/yy'}}
+
+  </div>
+</div>
+<div class="col-sm-4 last5Container coolScrol" >
+
+  <mz-input-container [inline]="true" class="col s4">
+
+  <input mz-input [(ngModel)]="distaneFilter"
+         name="distaneFilter"
+          [label]="'Reggatas in radius of' "
+         type="number">nm <button (click)="filterByDistance()" class="btn-primary">filter</button>
+</mz-input-container>
+  <mz-spinner class="spiner" *ngIf="!reggatsAll"
+              [color]="'blue'"
+              [size]="'big'">
+  </mz-spinner>
+  <div (click)="showDetails(reggata.id)" class="reggataShortContainer" *ngFor="let reggata of filetByDistanceReggatas;let last = last">
+    <span>Created by :</span><strong>{{reggata.username}}</strong><br>
+    <span>Start on :</span><strong>{{reggata.reggataDate|date: 'dd/MM/yy'}}</strong>
+    <span> at :</span><strong>{{reggata.reggataDate|date: 'HH:mm'}}</strong><br>
+    <span>Port: </span>{{reggata.port.name}}<br>
+    <span>Created: </span>{{reggata.created|date: 'dd/MM/yy'}}
+
+  </div>
+</div>

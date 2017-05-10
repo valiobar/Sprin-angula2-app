@@ -1,0 +1,155 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+   background:url('./assets/pexels-photo.jpg');
+  background-size: cover;
+  /*background-color: #010180!important;*/
+  height: 100%;
+}
+.layer{
+  background-color: rgba(1, 1, 128, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+html{
+  height: 100%;
+}
+.input-field  label{
+  font-size: medium!important;
+  color: white;
+
+}
+.input-field{
+  margin-top: 2.5rem;
+}
+input{
+  border-bottom-color: white!important;
+  font-size:large!important;
+}
+.dropdown-content{
+  background-color: rgba(1, 1, 128,1)!important;
+}
+.select-dropdown li.disabled, .select-dropdown li.disabled > span, .select-dropdown li.optgroup{
+  color: white!important;
+}
+.select-wrapper span.caret{
+  color: white!important;
+}
+.caret{
+  border-top: none!important;
+}
+.select-dropdown{
+  font-weight: bold;
+}
+.select-wrapper{
+  margin-top: 2rem;
+}
+.navDrop{
+  margin-bottom: 25px;
+}
+.navBarDropdown li{
+  float: none;
+}
+.dropdown-menu>li> a:hover{
+  background-color: white;
+  text-decoration: none;
+  color: rgba(1, 1, 128,1)!important;
+}
+.dropdown-menu>li> a{
+  color: white!important;
+  width: 100%;
+}
+.dropdown-menu{
+  background-color: rgba(1, 1, 128,1);
+
+}
+.dropdown-menu>li{
+
+  width: 100%;
+}
+.navbar-collapse.in{
+  background-color: rgba(1, 1, 128,1);
+
+}
+input[type=email].invalid + label:after,
+input[type=text].invalid + label:after,input[type=password].invalid + label:after{
+  font-size: small!important;
+}
+.modal{
+  background-color: rgba(1, 1, 128,1);;
+  color: white;
+  font-size:2rem;
+  font-weight: 500;
+}
+.modal .modal-content {
+  background-color: rgba(255, 255, 255, 0);;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+.modal .modal-footer{
+  background-color: rgba(255, 255, 255, 0);;
+  border-radius: 0;
+  border: none;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background-color:rgba(255, 255, 255, 0)!important;
+  background-image: none!important;
+  color: rgba(1, 1, 128,1)!important;
+}
+
+@media (max-width: 420px) {
+  .portMap{
+    height: 60%!important;
+  }
+}
+@media only screen and (min-device-width: 420px) and (max-device-width: 650px){
+  .portMap{
+    height: 75%!important;
+  }
+}
+.well{
+  background-color: transparent!important;
+}
+.timePicker input{
+  color: white;
+}
+.panel{
+  background-color: transparent;
+
+}
+.panel-body{
+  overflow-y: scroll;
+}
+
+
+.coolScrol::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)!important;
+  border-radius: 10px!important;
+  background-color: white!important;
+}
+
+.coolScrol::-webkit-scrollbar
+{
+  width: 12px!important;
+  background-color: transparent!important;
+  z-index: 13;
+}
+.coolScrol::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(1, 1, 128,1);
+}
+.alert-error{
+  position: absolute;
+  right: 0;
+  z-index: 1024;
+  background-color: red;
+
+}
+.spiner{
+  width: 100%;
+  height: 100%;
+}

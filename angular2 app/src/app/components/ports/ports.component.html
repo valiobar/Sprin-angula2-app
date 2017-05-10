@@ -1,0 +1,27 @@
+<form  #portForm="ngForm"  >
+<div class="col-md-6" >
+
+  <mz-input-container class="col s12">
+  <input  mz-input
+  required
+          name="gmapPort"
+          id="search"
+          type="text">
+</mz-input-container>
+  <mz-input-container class="col s12">
+    <input  mz-input [(ngModel)]="portName"
+[label]="'Port Name'"
+            required
+            name="portName"
+            id="name"
+            type="text">
+  </mz-input-container>
+
+  <button [disabled]="!portForm.form.valid" (click)="create()" mz-button >
+    Create
+  </button>
+</div>
+  </form>
+<div class="col-md-6 portMap">
+  <app-map [showLogs]="false" [zoom]="13" (onSearch)="onSearch($event)" [searchBox]="searchInput"  [center]="mapCenter"></app-map>
+</div>

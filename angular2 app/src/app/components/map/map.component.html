@@ -1,0 +1,52 @@
+
+<div class="col-md-6 col-md-offset-3 col-xs-12 ol-xs-offset-0" *ngFor="let alert of alerts">
+  <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
+</div>
+<div *ngIf="showLogs" class="reggataLegsContainer coolScrol" >
+  <div class="reggataLeg">
+    <span class="legSpan" >Reggata total distance</span>:{{totalDistance}}nm
+  </div>
+<div *ngFor="let leg of legs" class="reggataLeg">
+<span class="legSpan">from: </span>{{leg.labelOne}}
+  <span class="legSpan">to: </span>{{leg.labelTwo}}<br>
+  <span class="legSpan">distance: </span>{{leg.distance}}nm
+  <button *ngIf="isCreateReggataMap" (click)="removeMarker(leg.labelTwo)"  class="delMarker">X</button>
+ </div>
+  <mz-spinner class="spiner" *ngIf="spin"
+              [color]="'blue'"
+              [size]="'big'">
+  </mz-spinner>
+
+</div>
+<sebm-google-map class="gmap"
+  [latitude]="mapInitCenter.lat"
+  [longitude]="mapInitCenter.lng"
+  [zoom]="zoom"
+  [disableDefaultUI]="false"
+  [zoomControl]="false"
+  [fitBounds]="mapBounds"
+  (mapClick)="mapClicked($event)">
+
+  <sebm-google-map-marker
+    *ngFor="let m of markers; let i = index"
+    (markerClick)="clickedMarker(m.lat, m.lng)"
+    [latitude]="m.lat"
+    [longitude]="m.lng"
+    [label]="m.label"
+
+    [markerDraggable]="m.draggable"
+    (dragEnd)="markerDragEnd(m, $event)">
+    <sebm-google-map-polyline strokeColor='#f9072b' *ngIf="markers.length>1">
+      <sebm-google-map-polyline-point *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng">
+      </sebm-google-map-polyline-point>
+
+    </sebm-google-map-polyline>
+    <sebm-google-map-info-window >
+   <span  style="color: #111256">{{infoWindow}}</span>
+    </sebm-google-map-info-window>
+
+  </sebm-google-map-marker>
+
+
+<app-map-manipulator></app-map-manipulator>
+</sebm-google-map>
